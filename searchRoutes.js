@@ -1,23 +1,23 @@
 ﻿var express          = require('express');
-var router           = express.Router();
+// var router           = express.Router();
 
 var bodyParser       = require('body-parser')
 
 var sqlCommands      = require('./sqlCommands.js')
 
-var jsonParser       = bodyParser.json();
-var rawParser        = bodyParser.raw();
-var textParser       = bodyParser.text();
+// var jsonParser       = bodyParser.json();
+// var rawParser        = bodyParser.raw();
+// var textParser       = bodyParser.text();
 var urlencodedParser = bodyParser.urlencoded({ extended: false });
 
 function returnData(data) {
-  this.header("Content-Type", "application/json");
-  this.send(data)
+  this.header('Content-Type', 'application/json');
+  this.send(data);
 }
 
 function returnError(error) {
   this.statusCode = 500;
-  this.send(error)
+  this.send(error);
 }
 
 var routes = express.Router();
@@ -72,34 +72,13 @@ routes.get('/foodCalculations', urlencodedParser, function (req, res) {
 
   sqlCommands.processQuery('search.GetFoodEntryCalculation', [
 
-      { name: 'FoodID',   value: req.query.foodID   },
-      { name: 'Amount',   value: req.query.amount   },
-      { name: 'UnitName', value: req.query.unitName }
+    { name: 'FoodID',   value: req.query.foodID   },
+    { name: 'Amount',   value: req.query.amount   },
+    { name: 'UnitName', value: req.query.unitName }
 
   ]).then(returnData.bind(res), returnError.bind(res))
 
 });
-
-///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-//routes.post('/analiseSignal', urlencodedParser, function (req, res) {
-
-//    var text    = req.body.signal;
-
-//    sqlCommands.getMatchingFoodNames(text, function (rows) {
-
-//        var result = {};
-
-//        rows[0].forEach(function (item) {
-//            result[item.metadata.colName] = item.value;
-//        });
-
-//        res.send(JSON.stringify(result));
-//    });
-
-//});
-
-///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 exports.routes = routes;
 

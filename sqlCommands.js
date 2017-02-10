@@ -1,7 +1,7 @@
 ﻿var ConnectionPool = require('tedious-connection-pool');
-var Connection     = require('tedious').Connection;
+//var Connection     = require('tedious').Connection;
 var Request        = require('tedious').Request;
-var TYPES          = require('tedious').TYPES
+var TYPES          = require('tedious').TYPES;
 
 var poolConfig = {
   min: 2,
@@ -11,28 +11,28 @@ var poolConfig = {
 
 var connectionConfig = {
 
-    userName:  process.env.USER_NAME     || 'eatandoData',
-    password:  process.env.USER_PASSWORD || '123ABC',
-    server:    process.env.SERVER_NAME   || 'WS030',
+  userName:  process.env.USER_NAME     || 'eatandoData',
+  password:  process.env.USER_PASSWORD || '123ABC',
+  server:    process.env.SERVER_NAME   || 'WS030',
     
-    options: {
+  options: {
 
-        database: process.env.DATABASE_NAME ||  'EatAndDoNew',
+    database: process.env.DATABASE_NAME ||  'EatAndDoNew',
 
-        connectTimeout:  15000,
-        requestTimeout: 480000,
+    connectTimeout:  15000,
+    requestTimeout: 480000,
 
-        camelCaseColumns:                 true,
-        rowCollectionOnDone:              true,
-        rowCollectionOnRequestCompletion: true,
-        encrypt:                          true
-    }
+    camelCaseColumns:                 true,
+    rowCollectionOnDone:              true,
+    rowCollectionOnRequestCompletion: true,
+    encrypt:                          true
+  }
 };
 
 var pool = new ConnectionPool(poolConfig, connectionConfig);
 
 pool.on('error', function (err) {
-  console.error(err);
+  console.error(err); // eslint-disable-line no-console
 });
 
 function convertRowsToJSON(rows) {
@@ -67,11 +67,11 @@ exports.processQuery = function processQuery(procedureName, parameterValues){
         reject(JSON.stringify(poolError));
       }
 
-      request = new Request(procedureName, function (requestError, rowCount, rows) {
+      let request = new Request(procedureName, function (requestError, rowCount, rows) {
 
         if (requestError) {
 
-          console.log(requestError);
+          console.log(requestError); // eslint-disable-line no-console
 
           reject(JSON.stringify(requestError));
 
@@ -86,7 +86,7 @@ exports.processQuery = function processQuery(procedureName, parameterValues){
 
       parameterValues.forEach(function (parameter) {
         request.addParameter(parameter.name, TYPES.VarChar, parameter.value);
-      })
+      });
 
       connection.callProcedure(request);
 
@@ -94,6 +94,6 @@ exports.processQuery = function processQuery(procedureName, parameterValues){
 
   });
 
-}
+};
 
 
