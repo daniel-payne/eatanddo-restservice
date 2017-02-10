@@ -32,9 +32,9 @@ routes.get('/', function (req, res) {
 
 routes.get('/foodNames', urlencodedParser, function (req, res) {
 
-  sqlCommands.processQuery('search.GetMatchingFoodNames', [
+  sqlCommands.processQuery('search.GetFoodNames', [
 
-    { name: 'Search', value: req.query.search },
+    { name: 'Match', value: req.query.match },
     { name: 'Sources', value: req.query.sources || 'cofid phe ead' },
     { name: 'MaxResults', value: req.query.count || 10 }
 
