@@ -31,6 +31,8 @@ var connectionConfig = {
     }
 };
 
+console.log(connectionConfig.userName, connectionConfig.server, connectionConfig.options.database)
+
 var pool = new ConnectionPool(poolConfig, connectionConfig);
 
 pool.on('error', function (err) {
