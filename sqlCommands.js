@@ -9,8 +9,6 @@ var poolConfig = {
   log: false
 };
 
-console.log([process.env.USER_NAME, process.env.SERVER_NAME, process.env.DATABASE_NAME])
-
 var connectionConfig = {
 
     userName:  process.env.USER_NAME     || 'eatandoData',
@@ -30,8 +28,6 @@ var connectionConfig = {
         encrypt:                          true
     }
 };
-
-console.log(connectionConfig.userName, connectionConfig.server, connectionConfig.options.database)
 
 var pool = new ConnectionPool(poolConfig, connectionConfig);
 
