@@ -12,12 +12,12 @@ var poolConfig = {
 var connectionConfig = {
 
   userName:  process.env.USER_NAME     || 'eatandoData',
-  password:  process.env.USER_PASSWORD || '123ABC',
-  server:    process.env.SERVER_NAME   || 'WS030',
+  password:  process.env.USER_PASSWORD || '123abc',
+  server:    process.env.SERVER_NAME   || 'localhost',
     
   options: {
 
-    database: process.env.DATABASE_NAME ||  'EatAndDoNew',
+    database: process.env.DATABASE_NAME ||  'eatanddo',
 
     connectTimeout:  15000,
     requestTimeout: 480000,
@@ -46,7 +46,7 @@ function convertRowsToJSON(rows) {
     row.forEach(function (item) {
 
       if (item.value !== null) {
-        rowResult[item.metadata.colName] = item.value.toString().replace(/\"/g, '"');
+        rowResult[item.metadata.colName] = item.value.toString().replace(/"/g, '"');
       }
 
     });

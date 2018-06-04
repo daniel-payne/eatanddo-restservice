@@ -18,9 +18,9 @@ var allowCrossDomain = function (req, res, next) {
 app.use(allowCrossDomain);
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
-app.use(bodyParser.text())
+app.use(bodyParser.text());
 
-app.use('/search', searchRoutes)
+app.use('/search', searchRoutes);
 
 app.get('/', function (req, res) {
   res.send('{serverTime: "' + (new Date()).toISOString().slice(0, 19) + '"}');
