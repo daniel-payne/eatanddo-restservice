@@ -1,5 +1,5 @@
 {
-  "name": "EatAndDoWebService",
+  "name": "eatanddo-web-service",
   "version": "1.0.0",
   "description": "EatAndDo Web Service",
   "main": "server.js",
@@ -8,10 +8,10 @@
     "email": "info@keldan.co.uk"
   },
   "dependencies": {
-    "body-parser": "^1.13.3",
-    "busboy": "^0.2.9",
-    "express": "^4.13.3",
-    "tedious": "^1.12.2",
-    "tedious-connection-pool": "^1.0.4"
+    "body-parser": "^1.18.3",
+    "busboy": "^0.2.14",
+    "express": "^4.16.3",
+    "tedious": "^2.6.1",
+    "tedious-connection-pool": "^1.0.5"
   }
 }

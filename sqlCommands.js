@@ -17,7 +17,7 @@ var connectionConfig = {
     
   options: {
 
-    database: process.env.DATABASE_NAME ||  'eatanddo',
+    database: process.env.DATABASE_NAME ||  'eatanddoSearch',
 
     connectTimeout:  15000,
     requestTimeout: 480000,

@@ -68,26 +68,12 @@ routes.get('/units', urlencodedParser, function (req, res) {
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-routes.get('/foodCalculations', urlencodedParser, function (req, res) {
-
-  sqlCommands.processQuery('search.GetFoodEntryCalculation', [
-
-    { name: 'FoodID',   value: req.query.foodID   },
-    { name: 'Amount',   value: req.query.amount   },
-    { name: 'UnitName', value: req.query.unitName }
-
-  ]).then(returnData.bind(res), returnError.bind(res));
-
-});
-
-///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-routes.post('/searchUsed', urlencodedParser, function (req, res) {
+routes.get('/searchUsed', urlencodedParser, function (req, res) {
 
   sqlCommands.processQuery('search.PostSearchUsed', [
 
-    { name: 'Search',         value: req.query.search   },
-    { name: 'FoodID',         value: req.query.foodID   },
+    { name: 'SearchID',       value: req.query.searchId   },
+    { name: 'FoodID',         value: req.query.foodId     },
 
   ]).then(returnData.bind(res), returnError.bind(res));
 
