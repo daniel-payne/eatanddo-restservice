@@ -67,7 +67,7 @@ exports.processQuery = function processQuery(procedureName, parameterValues){
         reject(JSON.stringify(poolError));
       }
 
-      let request = new Request(procedureName, function (requestError, rowCount, rows) {
+      var request = new Request(procedureName, function (requestError, rowCount, rows) {
 
         if (requestError) {
 
