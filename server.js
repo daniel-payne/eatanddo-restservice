@@ -3,8 +3,8 @@ var express    = require('express');
 var app        = express();
 var bodyParser = require('body-parser');
 // var router     = express.Router();
-var fs         = require('fs');
-var https      = require('https');
+// var fs         = require('fs');
+// var https      = require('https');
 
 var searchRoutes = require('./searchRoutes').routes;
 
@@ -33,19 +33,16 @@ app.get('/', function (req, res) {
 });
 
 var portHTTP = process.env.port || 1337;
-var portHTTPS = process.env.port || 1338;
-
 app.listen(portHTTP, function () {
-
-  console.log('http://localhost:' + portHTTP); //eslint-disable-line no-console
-
+  //console.log('HTTP http://localhost:' + portHTTP); //eslint-disable-line no-console
 });
 
-https.createServer({
-  key: fs.readFileSync('key.pem'),
-  cert: fs.readFileSync('cert.pem')
-}, app).listen(portHTTPS, function () {
-  console.log('Example app listening on port 3000! Go to https://localhost:' + portHTTPS); //eslint-disable-line no-console
-});
+// var portHTTPS = process.env.port || 1338;
+// https.createServer({
+//   key: fs.readFileSync('key.pem'),
+//   cert: fs.readFileSync('cert.pem')
+// }, app).listen(portHTTPS, function () {
+//   console.log('HTTPS https://localhost:' + portHTTPS); //eslint-disable-line no-console
+// });
 
 

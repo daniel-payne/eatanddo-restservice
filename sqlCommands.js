@@ -11,13 +11,13 @@ var poolConfig = {
 
 var connectionConfig = {
 
-  userName:  process.env.USER_NAME     || 'eatandoData',
+  userName:  process.env.USER_NAME     || 'testUser',
   password:  process.env.USER_PASSWORD || '123abc',
   server:    process.env.SERVER_NAME   || 'localhost',
     
   options: {
 
-    database: process.env.DATABASE_NAME ||  'eatanddoSearch',
+    database: process.env.DATABASE_NAME || 'eatanddo',
 
     connectTimeout:  15000,
     requestTimeout: 480000,
