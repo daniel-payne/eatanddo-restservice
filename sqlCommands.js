@@ -11,7 +11,7 @@ var poolConfig = {
 
 var connectionConfig = {
 
-  userName:  process.env.USER_NAME     || 'testUser',
+  userName:  process.env.USER_NAME     || 'eatandoData',
   password:  process.env.USER_PASSWORD || '123abc',
   server:    process.env.SERVER_NAME   || 'localhost',
     

@@ -1,12 +1,10 @@
-﻿
-var express    = require('express');
+﻿var express    = require('express');
 var app        = express();
 var bodyParser = require('body-parser');
-// var router     = express.Router();
-// var fs         = require('fs');
-// var https      = require('https');
 
 var searchRoutes = require('./searchRoutes').routes;
+
+var portHTTP = process.env.port || 1337;
 
 var allowCrossDomain = function (req, res, next) {
 
@@ -29,14 +27,20 @@ app.use(bodyParser.text());
 app.use('/search', searchRoutes);
 
 app.get('/', function (req, res) {
-  res.send('{serverTime: "' + (new Date()).toISOString().slice(0, 19) + '"}');
+  res.send('{"serverTime": "' + (new Date()).toISOString().slice(0, 19) + '"}');
 });
 
-var portHTTP = process.env.port || 1337;
+app.get('/version', function (req, res) {
+  res.send('{"clientVersion": "' +  '0.1.18' + '"}');
+});
+
+
 app.listen(portHTTP, function () {
-  //console.log('HTTP http://localhost:' + portHTTP); //eslint-disable-line no-console
+  console.log('HTTP http://localhost:' + portHTTP); //eslint-disable-line no-console
 });
 
+// var fs         = require('fs');
+// var https      = require('https');
 // var portHTTPS = process.env.port || 1338;
 // https.createServer({
 //   key: fs.readFileSync('key.pem'),
