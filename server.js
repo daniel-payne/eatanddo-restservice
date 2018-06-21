@@ -31,7 +31,7 @@ app.get('/', function (req, res) {
 });
 
 app.get('/version', function (req, res) {
-  res.send('{"clientVersion": "' +  '0.1.18' + '"}');
+  res.send('{"clientVersion": "' +  '0.1.19' + '"}');
 });
 
 
