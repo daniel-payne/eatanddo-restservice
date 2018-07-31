@@ -12,6 +12,7 @@
     "busboy": "^0.2.14",
     "express": "^4.16.3",
     "tedious": "^2.6.1",
-    "tedious-connection-pool": "^1.0.5"
+    "tedious-connection-pool": "^1.0.5",
+    "wellknown": "^0.5.0"
   }
 }
