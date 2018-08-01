@@ -39,6 +39,8 @@ app.listen(portHTTP, function () {
   console.log('HTTP http://localhost:' + portHTTP); //eslint-disable-line no-console
 });
 
+//REMOVE BEFORE COMMITING
+
 // var fs         = require('fs');
 // var https      = require('https');
 // var portHTTPS = process.env.port || 1338;
