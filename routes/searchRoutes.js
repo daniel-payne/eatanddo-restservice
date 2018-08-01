@@ -3,7 +3,7 @@
  
 var bodyParser       = require('body-parser');
  
-var sqlCommands      = require('./sqlCommands.js');
+var sqlCommands      = require('../sqlCommands.js');
  
 // var jsonParser       = bodyParser.json();
 // var rawParser        = bodyParser.raw();
