@@ -36,7 +36,7 @@ app.get('/version', function (req, res) {
 
 
 app.listen(portHTTP, function () {
-  console.log('HTTP http://localhost:' + portHTTP); //eslint-disable-line no-console
+  // console.log('HTTP http://localhost:' + portHTTP); //eslint-disable-line no-console
 });
 
 //REMOVE BEFORE COMMITING

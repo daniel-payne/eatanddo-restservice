@@ -13,7 +13,7 @@ var poolConfig = {
 var connectionConfig = {
 
   userName:  process.env.USER_NAME     || 'sa',
-  password:  process.env.USER_PASSWORD || 'popllk00--',
+  password:  process.env.USER_PASSWORD || 'test',
   server:    process.env.SERVER_NAME   || '192.168.1.109',
     
   options: {
