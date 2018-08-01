@@ -2,7 +2,7 @@
 var app        = express();
 var bodyParser = require('body-parser');
 
-var searchRoutes = require('./searchRoutes').routes;
+var geographicRoutes = require('./routes/geographicRoutes').routes;
 
 var portHTTP = process.env.port || 1337;
 
@@ -24,7 +24,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(bodyParser.text());
 
-app.use('/search', searchRoutes);
+app.use('/geographic', geographicRoutes);
 
 app.get('/', function (req, res) {
   res.send('{"serverTime": "' + (new Date()).toISOString().slice(0, 19) + '"}');
@@ -38,8 +38,6 @@ app.get('/version', function (req, res) {
 app.listen(portHTTP, function () {
   console.log('HTTP http://localhost:' + portHTTP); //eslint-disable-line no-console
 });
-
-
 
 // var fs         = require('fs');
 // var https      = require('https');

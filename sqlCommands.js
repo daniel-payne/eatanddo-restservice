@@ -2,6 +2,7 @@
 //var Connection     = require('tedious').Connection;
 var Request        = require('tedious').Request;
 var TYPES          = require('tedious').TYPES;
+//var parse          = require('wellknown');
 
 var poolConfig = {
   min: 2,
@@ -11,13 +12,13 @@ var poolConfig = {
 
 var connectionConfig = {
 
-  userName:  process.env.USER_NAME     || 'eatandoData',
-  password:  process.env.USER_PASSWORD || '123abc',
-  server:    process.env.SERVER_NAME   || 'localhost',
+  userName:  process.env.USER_NAME     || 'sa',
+  password:  process.env.USER_PASSWORD || 'popllk00--',
+  server:    process.env.SERVER_NAME   || '192.168.1.109',
     
   options: {
 
-    database: process.env.DATABASE_NAME || 'eatanddo',
+    database: process.env.DATABASE_NAME || 'SignalsAnalizer',
 
     connectTimeout:  15000,
     requestTimeout: 480000,
