@@ -2,7 +2,7 @@
 var app        = express();
 var bodyParser = require('body-parser');
 
-var geographicRoutes = require('./routes/geographicRoutes').routes;
+var searchRoutes = require('./routes/searchRoutes').routes;
 
 var portHTTP = process.env.port || 1337;
 
@@ -24,7 +24,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(bodyParser.text());
 
-app.use('/geographic', geographicRoutes);
+app.use('/search', searchRoutes);
 
 app.get('/', function (req, res) {
   res.send('{"serverTime": "' + (new Date()).toISOString().slice(0, 19) + '"}');
